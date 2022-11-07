@@ -9,6 +9,13 @@ import { Config } from "../types";
 const config: Config = configuration;
 
 export default function HomePage() {
+    /**
+     * display:
+     * flexDirection: How is flex understandable?
+     *      flexDirection: column; // I guess it makes a column with the inner elements
+     * flex: sets how a flex item will grow or shrink to fit the space available in its flex container
+     *      flex: 1; // It works
+     */
     const homePageStyle: CSSProperties = {
         display: "flex",
         flexDirection: "column",
@@ -22,6 +29,7 @@ export default function HomePage() {
                 <Menu />
                 <Header config={config}/>
                 <Timeline playlists={config.playlists} />
+                {/* TODO: Add favorites */}
             </div>
         </>
     );

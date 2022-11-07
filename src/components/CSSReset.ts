@@ -1,5 +1,30 @@
 import { createGlobalStyle } from "styled-components";
 
+/**
+ * margin:
+ *    margin: 0; //
+ * padding:
+ *    padding: 0; //
+ * box-sizing:
+ *    box-sizing: border-box; //
+ * font-family:
+ *    font-family: sans-serif; //
+ * display:
+ *    display: flex; //
+ * flex-direction:
+ *    flex-direction: column; //
+ * min-height:
+ *    min-height: 100%; //
+ * flex:
+ *    flex: 1; //
+ * text-decoration::
+ *    text-decoration: none; //
+ * opacity:
+ *    opacity: 1; //
+ *    opacity: .5; //
+ * transition:
+ *    transition: .3s; //
+ */
 export const CSSReset = createGlobalStyle`
   /* Reset */
   * {

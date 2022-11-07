@@ -1,5 +1,36 @@
 import styled from "styled-components";
 
+/**
+ * display:
+ *    display: flex; //
+ * flexDirection:
+ *    flexDirection: row; //
+ * height:
+ *    height: 56px; //
+ * justify-content:
+ *    justify-content: space-between; //
+ * background-color: sets the background color.
+ *    background-color: #FFFFFF; // Sets the background color to white.
+ * border:
+ *    border: 1px solid #FF0000; //
+ * align-items:
+ *    align-items: center; //
+ * padding:
+ *    padding: 0 16px; //
+ * gap:
+ *    gap: 16px; //
+ * position:
+ *    position: fixed; //
+ * width:
+ *    width: 100%; //
+ * max-width:
+ *    max-width: 80px; //
+ *    max-width: 127px; //
+ * min-width:
+ *    min-width: 600px; //
+ * fill:
+ *    fill: #00FF00; //
+ */
 const StyledMenu = styled.header`
   display: flex;
   flex-direction: row;

@@ -1,6 +1,56 @@
 import styled from "styled-components";
 import { Playlists } from "../../types";
 
+/**
+ * flex:
+ *    flex: 1; //
+ * width:
+ *    width: 100%; //
+ * padding:
+ *    padding: 16px; //
+ *    padding: 0; //
+ * overflow:
+ *    overflow: hidden; //
+ * font-size:
+ *    font-size: 16px; //
+ * margin-bottom:
+ *    margin-bottom: 16px; //
+ * text-transform:
+ *    text-transform: capitalize; //
+ * aspect-ratio:
+ *    aspect-ratio: 16/9; //
+ * font-weight:
+ *    font-weight: 500; //
+ * object-fit:
+ *    object-fit: cover; //
+ * max-width:
+ *    max-width: 210px; //
+ * height:
+ *    height: auto; //
+ * display:
+ *    display: grid; //
+ *    display: box; //
+ * grid-gap:
+ *    grid-gap: 16px; //
+ * grid-template-columns:
+ *    grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); //
+ * grid-auto-flow:
+ *    grid-auto-flow: column; //
+ * grid-auto-columns:
+ *    grid-auto-columns: minmax(200px,1fr); //
+ * overflow-x:
+ *    overflow-x: scroll; //
+ * scroll-snap-type:
+ *    scroll-snap-type: x mandatory; //
+ * scroll-snap-align:
+ *    scroll-snap-align: start; //
+ * padding-top:
+ *    padding-top: 8px; //
+ * padding-right:
+ *    padding-right: 24px; //
+ * color:
+ *    color: #0000FF; //
+ */
 const StyledTimeline = styled.div`
   flex: 1;
   width: 100%;
