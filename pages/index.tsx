@@ -11,6 +11,7 @@ const config: Config = configuration;
 export default function HomePage() {
     /**
      * display:
+     *      display: flex; //
      * flexDirection: How is flex understandable?
      *      flexDirection: column; // I guess it makes a column with the inner elements
      * flex: sets how a flex item will grow or shrink to fit the space available in its flex container

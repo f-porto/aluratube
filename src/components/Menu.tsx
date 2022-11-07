@@ -7,20 +7,20 @@ import styled from "styled-components";
  *    flexDirection: row; //
  * height:
  *    height: 56px; //
- * justify-content:
- *    justify-content: space-between; //
+ * justify-content: defines how the browser distributes space between and around content items
+ *    justify-content: space-between; // Distribute items evenly
  * background-color: sets the background color.
  *    background-color: #FFFFFF; // Sets the background color to white.
- * border:
- *    border: 1px solid #FF0000; //
+ * border: sets an element's border
+ *    border: 1px solid #FF0000; // 1 pixel of thickness, solid color, and red
  * align-items:
  *    align-items: center; //
  * padding:
  *    padding: 0 16px; //
- * gap:
+ * gap: sets the gaps (gutters) between rows and columns
  *    gap: 16px; //
- * position:
- *    position: fixed; //
+ * position: sets how an element is positioned in a document
+ *    position: fixed; // The element will be always there
  * width:
  *    width: 100%; //
  * max-width:

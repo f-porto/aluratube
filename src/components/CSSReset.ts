@@ -5,8 +5,8 @@ import { createGlobalStyle } from "styled-components";
  *    margin: 0; //
  * padding:
  *    padding: 0; //
- * box-sizing:
- *    box-sizing: border-box; //
+ * box-sizing: sets how the total width and height of an element is calculated
+ *    box-sizing: border-box; // Keeps the element inside
  * font-family:
  *    font-family: sans-serif; //
  * display:
@@ -17,9 +17,9 @@ import { createGlobalStyle } from "styled-components";
  *    min-height: 100%; //
  * flex:
  *    flex: 1; //
- * text-decoration::
- *    text-decoration: none; //
- * opacity:
+ * text-decoration: sets the appearance of decorative lines on text
+ *    text-decoration: none; // No decoration
+ * opacity: sets the opacity of an element
  *    opacity: 1; //
  *    opacity: .5; //
  * transition:
