@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Config } from "../../types";
+import { Config } from "../types";
 
 /**
  * width: sets element's width
@@ -18,26 +18,34 @@ import { Config } from "../../types";
  *      padding: 16px 32px; // 16 pixels top and bottom, 32 pixels right and left
  */
 const StyledHeader = styled.div`
-    img {
+    .avatar {
         width: 80px;
         height: 80px;
         border-radius: 50%;
     }
     .user-info {
-        margin-top: 50px;
         display: flex;
         align-items: center;
         width: 100%;
         padding: 16px 32px;
+        div {
+            margin-left: 10px;
+        }
+    }
+    .banner {
+        width: 100%;
+        max-height: 230px;
+        object-fit: cover;
+        margin-top: 50px;
     }
 `;
 
 export default function Header({ config }: { config: Config }) {
     return (
         <StyledHeader>
-            {/* TODO: Add the banner <img src="banner" /> */}
+            <img className="banner" src={config.bannerUrl} />
             <section className="user-info">
-                <img src={`https://github.com/${config.github}.png`} />
+                <img className="avatar" src={`https://github.com/${config.github}.png`} />
                 <div>
                     <h2>{config.name}</h2>
                     <p>{config.description}</p>

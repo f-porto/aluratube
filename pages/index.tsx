@@ -4,7 +4,8 @@ import { CSSReset } from "../src/components/CSSReset";
 import Menu from "../src/components/Menu";
 import Header from "../src/components/Header"
 import Timeline from "../src/components/Timeline";
-import { Config } from "../types";
+import { Config } from "../src/types";
+import Favorites from "../src/components/Favorites";
 
 const config: Config = configuration;
 
@@ -28,9 +29,9 @@ export default function HomePage() {
             <CSSReset />
             <div style={homePageStyle}>
                 <Menu />
-                <Header config={config}/>
+                <Header config={config} />
                 <Timeline playlists={config.playlists} />
-                {/* TODO: Add favorites */}
+                <Favorites favorites={config.favorites} />
             </div>
         </>
     );

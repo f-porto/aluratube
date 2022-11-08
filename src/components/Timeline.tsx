@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Playlists } from "../../types";
+import { Playlists } from "../types";
 
 /**
  * flex:
@@ -71,7 +71,6 @@ const StyledTimeline = styled.div`
   }
   section {
     width: 100%;
-    padding: 0;
     overflow: hidden;
     padding: 16px;
     div {
@@ -97,7 +96,7 @@ const StyledTimeline = styled.div`
   }
 `;
 
-export default function Timeline({ playlists, children }: { playlists: Playlists, children?: any }) {
+export default function Timeline({ playlists }: { playlists: Playlists }) {
   return (
     <StyledTimeline>
       {Object.entries(playlists)

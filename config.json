@@ -1,7 +1,16 @@
 {
-    "name": "Mario Souto (DevSoutinho)",
-    "description": "Lead Software Engineer",
-    "github": "omariosouto",
+    "name": "Felipe Sá (f-porto)",
+    "description": "Computing Engineer Student",
+    "github": "f-porto",
+    "bannerUrl": "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNzkwOTZ8MHwxfGFsbHx8fHx8fHx8fDE2Njc5MzYyNzE&ixlib=rb-4.0.3&q=80&w=1080",
+    "favorites": [
+        {
+            "github": "peas"
+        },
+        {
+            "github": "omariosouto"
+        }
+    ],
     "playlists": {
         "jogos": [
             {
