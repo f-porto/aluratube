@@ -35,9 +35,9 @@ export default function Favorites({ favorites }: { favorites: Favorite[] }) {
             <section>
                 <h2>Favorite AluraTubes</h2>
                 <div>
-                    {favorites.map((favorite) => {
+                    {favorites.map((favorite, i) => {
                         return (
-                            <a href={`https://github.com/${favorite.github}`}>
+                            <a key={`f${i}`} href={`https://github.com/${favorite.github}`}>
                                 <img src={`https://github.com/${favorite.github}.png`} />
                                 <span>@{favorite.github}</span>
                             </a>

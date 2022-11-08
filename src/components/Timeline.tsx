@@ -96,24 +96,26 @@ const StyledTimeline = styled.div`
   }
 `;
 
-export default function Timeline({ playlists }: { playlists: Playlists }) {
+export default function Timeline({ playlists, searchedValue }: { playlists: Playlists, searchedValue: string }) {
   return (
     <StyledTimeline>
       {Object.entries(playlists)
-        .map((pair) => {
+        .map((pair, i) => {
           const [name, videos] = pair;
           return (
-            <section>
+            <section key={`pl${i}`}>
               <h2>{name}</h2>
               <div>
-                {videos.map((video) => {
-                  return (
-                    <a href={video.url}>
-                      <img src={video.thumb} />
-                      <span>{video.title}</span>
-                    </a>
-                  );
-                })}
+                {videos
+                  .filter(video => video.title.toLowerCase().includes(searchedValue.toLocaleLowerCase()))
+                  .map((video, j) => {
+                    return (
+                      <a key={`v${j}`} href={video.url}>
+                        <img src={video.thumb} />
+                        <span>{video.title}</span>
+                      </a>
+                    );
+                  })}
               </div>
             </section>
           );

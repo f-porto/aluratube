@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Search from "./components/Search";
 
 /**
  * display:
@@ -55,12 +56,13 @@ const StyledMenu = styled.header`
   }
 `;
 
-export default function Menu() {
+export default function Menu({ setToSearch }: { setToSearch: (toSearch: string) => void }) {
   return (
     <StyledMenu>
       <div>
         <Logo />
       </div>
+      <Search setToSearch={setToSearch} />
     </StyledMenu>
   );
 }

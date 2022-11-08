@@ -1,4 +1,4 @@
-import { CSSProperties } from "react";
+import { CSSProperties, useState } from "react";
 import configuration from "../config.json";
 import { CSSReset } from "../src/components/CSSReset";
 import Menu from "../src/components/Menu";
@@ -24,13 +24,15 @@ export default function HomePage() {
         flex: 1
     };
 
+    const [toSearch, setToSearch] = useState('');
+
     return (
         <>
             <CSSReset />
             <div style={homePageStyle}>
-                <Menu />
+                <Menu setToSearch={setToSearch} />
                 <Header config={config} />
-                <Timeline playlists={config.playlists} />
+                <Timeline searchedValue={toSearch} playlists={config.playlists} />
                 <Favorites favorites={config.favorites} />
             </div>
         </>
