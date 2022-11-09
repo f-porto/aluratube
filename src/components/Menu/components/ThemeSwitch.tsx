@@ -14,15 +14,17 @@ const StyledThemeSwitch = styled.div`
 const StyledDiv = styled.div<{ isVisible: boolean }>`
     width: 24px;
     height: 24px;
-    background-color: ${ (props) => props.isVisible ? "inherit" : "#FAFAFA" };
+    background-color: ${(props) => props.isVisible ? "inherit" : "#FAFAFA"};
     border-radius: 50%;
     span {
-        visibility: ${ (props) => props.isVisible ? "visible": "hidden" };
+        visibility: ${(props) => props.isVisible ? "visible" : "hidden"};
     }
 `;
 
-export default function ThemeSwitch({ isLight, toggleMode }: { isLight: boolean, toggleMode: (isLight: boolean) => void }) {
-
+export default function ThemeSwitch(
+    { isLight, toggleMode }:
+        { isLight: boolean, toggleMode: (isLight: boolean) => void }
+) {
     return (
         <StyledThemeSwitch onClick={() => toggleMode(!isLight)}>
             <StyledDiv isVisible={!isLight} >
