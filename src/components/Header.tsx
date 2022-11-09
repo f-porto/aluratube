@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Config } from "../types";
+import { Config, Theme } from "../types";
 
 /**
  * width: sets element's width
@@ -38,6 +38,9 @@ const StyledHeader = styled.div`
         object-fit: cover;
         margin-top: 50px;
     }
+    .text {
+        color: ${({ theme }: { theme: Theme }) => theme.textColorBase }
+    }
 `;
 
 export default function Header({ config }: { config: Config }) {
@@ -47,8 +50,8 @@ export default function Header({ config }: { config: Config }) {
             <section className="user-info">
                 <img className="avatar" src={`https://github.com/${config.github}.png`} />
                 <div>
-                    <h2>{config.name}</h2>
-                    <p>{config.description}</p>
+                    <h2 className="text">{config.name}</h2>
+                    <p className="text">{config.description}</p>
                 </div>
             </section>
         </StyledHeader>

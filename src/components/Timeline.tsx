@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Playlists } from "../types";
+import { Playlists, Theme } from "../types";
 
 /**
  * flex:
@@ -73,6 +73,9 @@ const StyledTimeline = styled.div`
     width: 100%;
     overflow: hidden;
     padding: 16px;
+    h2 {
+      color: ${({ theme }) => theme.textColorBase};
+    }
     div {
       
       width: calc(100vw - 16px * 4);
@@ -89,7 +92,7 @@ const StyledTimeline = styled.div`
           padding-top: 8px;
           display: block;
           padding-right: 24px;
-          color: ${({ theme }) => theme.textColorBase || "#222222"};
+          color: ${({ theme }: { theme: Theme }) => theme.textColorBase};
         }
       }
     }

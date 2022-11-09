@@ -1,13 +1,16 @@
 import { CSSProperties, useState } from "react";
 import configuration from "../config.json";
+import themes from "../themes.json";
 import { CSSReset } from "../src/components/CSSReset";
 import Menu from "../src/components/Menu";
 import Header from "../src/components/Header"
 import Timeline from "../src/components/Timeline";
-import { Config } from "../src/types";
+import { Config, Themes } from "../src/types";
 import Favorites from "../src/components/Favorites";
+import { ThemeProvider } from "styled-components";
 
 const config: Config = configuration;
+const { lightMode, darkMode }: Themes = themes
 
 export default function HomePage() {
     /**
@@ -25,16 +28,19 @@ export default function HomePage() {
     };
 
     const [toSearch, setToSearch] = useState('');
+    const [isLight, toggleMode] = useState(true);
 
     return (
         <>
-            <CSSReset />
-            <div style={homePageStyle}>
-                <Menu setToSearch={setToSearch} />
-                <Header config={config} />
-                <Timeline searchedValue={toSearch} playlists={config.playlists} />
-                <Favorites favorites={config.favorites} />
-            </div>
+            <ThemeProvider theme={isLight ? lightMode : darkMode}>
+                <CSSReset />
+                <div style={homePageStyle}>
+                    <Menu setToSearch={setToSearch} isLight={isLight} toggleMode={toggleMode} />
+                    <Header config={config} />
+                    <Timeline searchedValue={toSearch} playlists={config.playlists} />
+                    <Favorites favorites={config.favorites} />
+                </div>
+            </ThemeProvider>
         </>
     );
 }

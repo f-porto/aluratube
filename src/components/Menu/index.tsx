@@ -1,5 +1,7 @@
 import styled from "styled-components";
+import { Theme } from "../../types";
 import Search from "./components/Search";
+import ThemeSwitch from "./components/ThemeSwitch";
 
 /**
  * display:
@@ -32,13 +34,13 @@ import Search from "./components/Search";
  * fill:
  *    fill: #00FF00; //
  */
-const StyledMenu = styled.header`
+const StyledMenu = styled.header<{ theme: Theme }>`
   display: flex;
   flex-direction: row;
   height: 56px;
   justify-content: space-between;
-  background-color: ${({ theme }) => theme.backgroundLevel1 || "#FFFFFF"};
-  border: 1px solid ${({ theme }) => theme.borderBase || "#e5e5e5"};
+  background-color: ${({ theme }: { theme: Theme }) => theme.backgroundLevel1};
+  border: 1px solid ${({ theme }: { theme: Theme }) => theme.borderBase};
   align-items: center;
   padding: 0 16px;
   gap: 16px;
@@ -51,18 +53,22 @@ const StyledMenu = styled.header`
       max-width: 127px;
     }
     .text {
-      fill: ${({ theme }) => theme.textColorBase || "#222222"};
+      fill: ${({ theme }) => theme.textColorBase };
     }
   }
 `;
 
-export default function Menu({ setToSearch }: { setToSearch: (toSearch: string) => void }) {
+export default function Menu(
+  { setToSearch, isLight, toggleMode }:
+    { setToSearch: (toSearch: string) => void, isLight: boolean, toggleMode: (isLight: boolean) => void }
+) {
   return (
     <StyledMenu>
       <div>
         <Logo />
       </div>
       <Search setToSearch={setToSearch} />
+      <ThemeSwitch isLight={isLight} toggleMode={toggleMode} />
     </StyledMenu>
   );
 }

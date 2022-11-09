@@ -18,3 +18,16 @@ export interface Video {
 export interface Favorite {
     github: string
 }
+
+export interface Themes {
+    lightMode: Theme
+    darkMode: Theme
+}
+
+export interface Theme {
+    backgroundBase: string
+    backgroundLevel1: string
+    backgroundLevel2: string
+    borderBase: string
+    textColorBase: string
+}

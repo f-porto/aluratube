@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Favorite } from "../types";
+import { Favorite, Theme } from "../types";
 
 const StyledFavorites = styled.div`
     padding: 16px 32px;
@@ -12,18 +12,19 @@ const StyledFavorites = styled.div`
         font-size: 16px;
         font-weight: 700;
         margin-bottom: 16px;
+        color: ${({ theme }: { theme: Theme }) => theme.textColorBase }
     }
     div {
         display: grid;
         grid-auto-flow: column;
         grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
         grid-gap: 8px;
-        overflow-x: scroll;
         a {
             display: grid;
             span {
                 margin-top: 8px;
                 text-align: center;
+                color: ${({ theme }: { theme: Theme }) => theme.textColorBase }
             }
         }
     }

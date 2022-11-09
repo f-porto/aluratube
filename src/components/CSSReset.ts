@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { Theme } from "../types";
 
 /**
  * margin:
@@ -34,6 +35,7 @@ export const CSSReset = createGlobalStyle`
   }
   body {
     font-family: sans-serif;
+    background-color: ${({ theme }: { theme: Theme }) => theme.backgroundBase};
   }
   /* NextJS */
   html {
