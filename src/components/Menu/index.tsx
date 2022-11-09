@@ -59,8 +59,8 @@ const StyledMenu = styled.header<{ theme: Theme }>`
 `;
 
 export default function Menu(
-    { setToSearch, isLight, toggleMode }:
-        { setToSearch: (toSearch: string) => void, isLight: boolean, toggleMode: (isLight: boolean) => void }
+    { setToSearch }:
+        { setToSearch: (toSearch: string) => void }
 ) {
     return (
         <StyledMenu>
@@ -68,7 +68,7 @@ export default function Menu(
                 <Logo />
             </div>
             <Search setToSearch={setToSearch} />
-            <ThemeSwitch isLight={isLight} toggleMode={toggleMode} />
+            <ThemeSwitch />
         </StyledMenu>
     );
 }

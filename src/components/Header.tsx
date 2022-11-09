@@ -18,6 +18,7 @@ import { Config, Theme } from "../types";
  *      padding: 16px 32px; // 16 pixels top and bottom, 32 pixels right and left
  */
 const StyledHeader = styled.div`
+    background-color: ${({ theme }: { theme: Theme }) => theme.backgroundLevel1};
     .avatar {
         width: 80px;
         height: 80px;
@@ -39,7 +40,7 @@ const StyledHeader = styled.div`
         margin-top: 50px;
     }
     .text {
-        color: ${({ theme }: { theme: Theme }) => theme.textColorBase }
+        color: ${({ theme }: { theme: Theme }) => theme.textColorBase}
     }
 `;
 

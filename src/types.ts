@@ -20,8 +20,8 @@ export interface Favorite {
 }
 
 export interface Themes {
-    lightMode: Theme
-    darkMode: Theme
+    light: Theme
+    dark: Theme
 }
 
 export interface Theme {
