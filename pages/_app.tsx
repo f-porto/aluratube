@@ -4,6 +4,7 @@ import { Themes } from "../src/types";
 import themesjs from "../themes.json"
 import { ColorModeProvider, ColorModeContext } from "../src/components/Menu/components/ColorMode";
 import { useContext } from "react";
+import RegisterVideo from "../src/components/RegisterVideo";
 
 const themes: Themes = themesjs
 
@@ -22,6 +23,7 @@ function MyApp({ Component, pageProps }) {
         <ThemeProvider theme={themes[context.mode]}>
             <CSSReset />
             <Component {...pageProps} />
+            <RegisterVideo />
         </ThemeProvider>
     );
 }
@@ -29,7 +31,7 @@ function MyApp({ Component, pageProps }) {
 export default function _App(props) {
     return (
         <ProviderWrapper>
-            <MyApp {...props}/>
+            <MyApp {...props} />
         </ProviderWrapper>
     )
 }

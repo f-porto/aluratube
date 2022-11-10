@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled from "styled-components";
 import { Playlists, Theme } from "../types";
 
@@ -112,11 +113,15 @@ export default function Timeline({ playlists, searchedValue }: { playlists: Play
                                 {videos
                                     .filter(video => video.title.toLowerCase().includes(searchedValue.toLocaleLowerCase()))
                                     .map((video, j) => {
+                                        const videoId = video.url.split('=')[1];
                                         return (
-                                            <a key={`v${j}`} href={video.url}>
+                                            <Link key={`v${j}`} href={{
+                                                pathname: "/video",
+                                                query: { id: videoId }
+                                            }}>
                                                 <img src={video.thumb} />
                                                 <span>{video.title}</span>
-                                            </a>
+                                            </Link>
                                         );
                                     })}
                             </div>
