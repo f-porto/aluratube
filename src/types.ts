@@ -1,4 +1,4 @@
-export interface Config {
+export type Config = {
     name: string
     description: string
     github: string
@@ -9,22 +9,22 @@ export interface Config {
 
 export type Playlists = { [key: string]: Video[] }
 
-export interface Video {
+export type Video = {
     title: string
     url: string
     thumb: string
 }
 
-export interface Favorite {
+export type Favorite = {
     github: string
 }
 
-export interface Themes {
+export type Themes = {
     light: Theme
     dark: Theme
 }
 
-export interface Theme {
+export type Theme = {
     backgroundBase: string
     backgroundLevel1: string
     backgroundLevel2: string

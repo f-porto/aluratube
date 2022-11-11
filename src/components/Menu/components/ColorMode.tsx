@@ -2,7 +2,7 @@ import { createContext, useState } from "react"
 
 type ColorMode = "light" | "dark"
 
-interface ColorModeContext {
+type ColorModeContext = {
     mode: ColorMode
     toggleMode: () => void
 }

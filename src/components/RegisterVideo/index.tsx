@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import { StyledRegisterVideo } from "./styles";
 
-interface Values {
+type Values = {
     title: string
     url: string
 }
@@ -21,7 +21,8 @@ function useForm(initialState: Values) {
         clear: () => setValues({
             title: "",
             url: ""
-        })
+        }),
+        getVideoId: () => values.url.match(/^https:\/\/www\.youtube\.com\/watch\?v=(?<id>.{11})$/)?.groups["id"]
     };
 }
 
@@ -32,9 +33,11 @@ export default function RegisterVideo() {
         url: ""
     });
 
+    const videoId = form.getVideoId();
+
     return (
         <StyledRegisterVideo>
-            <button type="button" onClick={() => setIsFormVisible(true)} className="add-video">+</button>
+            <button onClick={() => setIsFormVisible(true)} className="add-video">+</button>
             {isFormVisible
                 ? (
                     <form onSubmit={(event) => {
@@ -43,7 +46,7 @@ export default function RegisterVideo() {
                         setIsFormVisible(false);
                     }}>
                         <div>
-                            <button onClick={() => setIsFormVisible(false)} className="close-modal">X</button>
+                            <button type="button" onClick={() => setIsFormVisible(false)} className="close-modal">X</button>
                             <input
                                 placeholder="Video Title"
                                 name="title"
@@ -57,6 +60,7 @@ export default function RegisterVideo() {
                                 onChange={form.handleOnChange}
                             />
                             <button type="submit">Submit</button>
+                            {videoId ? <img src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`} /> : <></>}
                         </div>
                     </form>
                 )

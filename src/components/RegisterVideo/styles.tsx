@@ -68,4 +68,9 @@ export const StyledRegisterVideo = styled.div`
         color: ${({ theme }: { theme: Theme }) => theme.textColorBase};
         background-color: ${({ theme }: { theme: Theme }) => theme.backgroundBase};
     }
+    img {
+        margin-top: 16px;
+        object-fit: cover;
+        aspect-ratio: 16 / 9;
+    }
 `;

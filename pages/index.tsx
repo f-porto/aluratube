@@ -3,7 +3,7 @@ import configuration from "../config.json";
 import Menu from "../src/components/Menu";
 import Header from "../src/components/Header"
 import Timeline from "../src/components/Timeline";
-import { Config, Themes } from "../src/types";
+import { Config } from "../src/types";
 import Favorites from "../src/components/Favorites";
 
 const config: Config = configuration;
