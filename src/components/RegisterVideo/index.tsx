@@ -30,7 +30,7 @@ function useForm(initialState: Values) {
         clear: () => setValues({
             title: "",
             url: "",
-            playlistId: 2
+            playlistId: 0
         }),
         getVideoId: () => values.url.match(/^https:\/\/www\.youtube\.com\/watch\?v=(?<id>.{11})$/)?.groups["id"]
     };
@@ -45,7 +45,7 @@ export default function RegisterVideo() {
     const form = useForm({
         title: "",
         url: "",
-        playlistId: 2
+        playlistId: 0
     });
 
     const videoId = form.getVideoId();
@@ -68,15 +68,19 @@ export default function RegisterVideo() {
                         event.preventDefault();
 
                         const { title, url, playlistId } = form.values
-                        submitServ.submitVideo({
-                            title: title,
-                            url: url,
-                            thumb: thumb,
-                            playlistId: playlistId
-                        });
+                        if (playlistsInfo.find(info => info.id === playlistId) !== undefined) {
+                            submitServ.submitVideo({
+                                title: title,
+                                url: url,
+                                thumb: thumb,
+                                playlistId: playlistId
+                            });
 
-                        form.clear();
-                        setIsFormVisible(false);
+                            form.clear();
+                            setIsFormVisible(false);
+                        } else {
+                            alert("Must Select an Option");
+                        }
                     }}>
                         <div>
                             <button type="button" onClick={() => setIsFormVisible(false)} className="close-modal">X</button>
@@ -93,6 +97,7 @@ export default function RegisterVideo() {
                                 onChange={form.handleInputOnChange}
                             />
                             <select onChange={form.handleSelectOnChange}>
+                                <option value={0} key={`o`}>Select an option</option>
                                 {playlistsInfo.map(({ name, id }, i) => <option value={id} key={`o${i}`}>{name}</option>)}
                             </select>
                             <button type="submit">Submit</button>
