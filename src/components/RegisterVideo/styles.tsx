@@ -73,4 +73,16 @@ export const StyledRegisterVideo = styled.div`
         object-fit: cover;
         aspect-ratio: 16 / 9;
     }
+    select {
+        border-radius: 2px;
+        border: 1px solid ${({ theme }: { theme: Theme }) => theme.borderBase};
+        padding: 8px 10px;
+        margin-bottom: 10px;
+        outline: none;
+        color: #222222;
+        background-color: #f9f9f9;
+        color: ${({ theme }: { theme: Theme }) => theme.textColorBase};
+        background-color: ${({ theme }: { theme: Theme }) => theme.backgroundBase};
+        text-transform: capitalize;
+    }
 `;

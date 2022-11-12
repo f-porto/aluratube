@@ -1,12 +1,15 @@
-import { CSSProperties, useState } from "react";
+import { CSSProperties, useEffect, useState } from "react";
 import configuration from "../config.json";
 import Menu from "../src/components/Menu";
 import Header from "../src/components/Header"
 import Timeline from "../src/components/Timeline";
-import { Config } from "../src/types";
+import { Config, Favorite, Playlists } from "../src/types";
 import Favorites from "../src/components/Favorites";
+import { playlistsServices } from "../src/services/playlistsService";
+import { favoritesServices } from "../src/services/favoriteService";
 
 const config: Config = configuration;
+
 
 export default function HomePage() {
     /**
@@ -23,14 +26,33 @@ export default function HomePage() {
         flex: 1
     };
 
-    const [toSearch, setToSearch] = useState('');
+    const playlistsServ = playlistsServices();
+    const favoriteServ = favoritesServices();
+    const [toSearch, setToSearch] = useState("");
+    const [playlists, setPlaylists] = useState<Playlists>({});
+    const [favorites, setFavorites] = useState<Favorite[]>([]);
+
+    useEffect(() => {
+        playlistsServ.getAllPlaylists()
+            .then(
+                (playlists) => setPlaylists(playlists),
+                (reason) => console.log("[REJECTED]", reason)
+            );
+    });
+    useEffect(() => {
+        favoriteServ.getAllFavorites()
+            .then(
+                (favorites) => setFavorites(favorites),
+                (reason) => console.log("[REJECTED]", reason)
+            );
+    }, []);
 
     return (
         <div style={homePageStyle}>
             <Menu setToSearch={setToSearch} />
             <Header config={config} />
-            <Timeline searchedValue={toSearch} playlists={config.playlists} />
-            <Favorites favorites={config.favorites} />
+            <Timeline searchedValue={toSearch} playlists={playlists} />
+            <Favorites favorites={favorites} />
         </div>
     );
 }
